@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>House Price Predictor</h1>
+
+        <label>Size (sqft):</label>
+<input type="number" id="size" placeholder="Enter size" min="500" step="50">
+
+<label>Bedrooms:</label>
+<input type="number" id="bedrooms" placeholder="Enter bedrooms" min="1" step="1">
+
+<label>Bathrooms:</label>
+<input type="number" id="bathrooms" placeholder="Enter bathrooms" min="1" step="1">
+
+
+    <h2>Predicted Price: <span id="predicted-price">₹0</span></h2>
+
+
+        <canvas id="priceChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
