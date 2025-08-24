@@ -11,8 +11,6 @@ const houses = [
 
 // Prepare feature matrices for normal equation
 function computeTheta(X, y) {
-    // X: array of arrays, y: array
-    // theta = (X^T X)^-1 X^T y
     const math = window.math; // math.js is used
     const XT = math.transpose(X);
     const XTX = math.multiply(XT, X);
@@ -78,9 +76,7 @@ function initChart() {
                 }
             },
             scales: {
-                x: { 
-                    title: { display:true, text:'Size (sqft)' } 
-                },
+                x: { title: { display:true, text:'Size (sqft)' } },
                 y: { 
                     title: { display:true, text:'Price (₹)' },
                     ticks: {
