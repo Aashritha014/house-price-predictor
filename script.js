@@ -1,4 +1,4 @@
-// Example multi-feature dataset with prices in INR
+// Example dataset
 const houses = [
     {size:500, bedrooms:2, bathrooms:1, price:12000000},
     {size:700, bedrooms:3, bathrooms:1, price:15000000},
@@ -9,9 +9,9 @@ const houses = [
     {size:2000, bedrooms:5, bathrooms:4, price:32000000}
 ];
 
-// Prepare feature matrices for normal equation
+// Compute theta using Normal Equation
 function computeTheta(X, y) {
-    const math = window.math; // math.js is used
+    const math = window.math;
     const XT = math.transpose(X);
     const XTX = math.multiply(XT, X);
     const XTX_inv = math.inv(XTX);
@@ -19,7 +19,7 @@ function computeTheta(X, y) {
     return math.multiply(XTX_inv, XTy);
 }
 
-// Prepare data
+// Prepare feature and target arrays
 const X = houses.map(h => [1, h.size, h.bedrooms, h.bathrooms]);
 const y = houses.map(h => h.price);
 let theta;
@@ -48,14 +48,14 @@ function initChart() {
                 },
                 {
                     label: 'Regression Line',
-                    type:'line',
+                    type: 'line',
                     data: X.map(row => ({
-                        x: row[1], 
+                        x: row[1],
                         y: theta[0] + theta[1]*row[1] + theta[2]*row[2] + theta[3]*row[3]
                     })),
-                    borderColor:'red',
-                    borderWidth:2,
-                    fill:false
+                    borderColor: 'red',
+                    borderWidth: 2,
+                    fill: false
                 },
                 {
                     label: 'Predicted House',
@@ -73,12 +73,21 @@ function initChart() {
                             return `₹${context.raw.y.toLocaleString('en-IN')}`;
                         }
                     }
+                },
+                legend: {
+                    labels: {
+                        font: {
+                            size: 14
+                        }
+                    }
                 }
             },
             scales: {
-                x: { title: { display:true, text:'Size (sqft)' } },
+                x: { 
+                    title: { display: true, text: 'Size (sqft)' } 
+                },
                 y: { 
-                    title: { display:true, text:'Price (₹)' },
+                    title: { display: true, text: 'Price (₹)' },
                     ticks: {
                         callback: function(value) {
                             return `₹${value.toLocaleString('en-IN')}`;
@@ -92,21 +101,23 @@ function initChart() {
 
 // Predict function
 function predict() {
-    if(!theta) return;
+    if (!theta) return;
+
     const size = parseFloat(document.getElementById('size').value);
     const bedrooms = parseInt(document.getElementById('bedrooms').value);
     const bathrooms = parseInt(document.getElementById('bathrooms').value);
-    if(isNaN(size) || isNaN(bedrooms) || isNaN(bathrooms)) return;
+
+    if (isNaN(size) || isNaN(bedrooms) || isNaN(bathrooms)) return;
 
     const predicted = theta[0] + theta[1]*size + theta[2]*bedrooms + theta[3]*bathrooms;
     document.getElementById('predicted-price').innerText = `₹${predicted.toLocaleString('en-IN')}`;
 
-    // Update chart
-    priceChart.data.datasets[2].data = [{x:size, y:predicted}];
+    // Update predicted house on chart
+    priceChart.data.datasets[2].data = [{x: size, y: predicted}];
     priceChart.update();
 }
 
-// Event listeners to update prediction as user types
+// Event listeners for live prediction
 document.getElementById('size').addEventListener('input', predict);
 document.getElementById('bedrooms').addEventListener('input', predict);
 document.getElementById('bathrooms').addEventListener('input', predict);

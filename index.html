@@ -6,42 +6,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <!-- Header with simple text links -->
-<header class="page-header">
-    <a href="https://flash-bream-1cd.notion.site/Linear-Regression-15517bf3de1e80e592e4d92f078395f3?source=copy_link" target="_blank" class="header-link">
-        Working: Linear Regression
-    </a>
-    |
-    <a href="https://aashritha014.github.io/Blog-Page/" target="_blank" class="header-link">
-        Made By: Aashritha
-    </a>
-</header>
 
+    <!-- Header with text links -->
+    <header class="page-header">
+        <a href="https://flash-bream-1cd.notion.site/Linear-Regression-15517bf3de1e80e592e4d92f078395f3?source=copy_link" target="_blank" class="header-link">
+            Working
+        </a>
+        |
+        <a href="https://aashritha014.github.io/Blog-Page/" target="_blank" class="header-link">
+            Made By
+        </a>
+    </header>
 
-   <!-- Wrapper for Predictor + Working -->
-   <div class="main-container">
+    <!-- Main cards container -->
+    <div class="main-container">
 
-       <!-- Predictor Card -->
-       <div class="container">
-           <h1>House Price Predictor</h1>
+        <!-- Predictor Card -->
+        <div class="container">
+            <h1>House Price Predictor</h1>
 
-           <label>Size (sqft):</label>
-           <input type="number" id="size" placeholder="Enter size" min="500" step="50">
+            <label>Size (sqft):</label>
+            <input type="number" id="size" placeholder="Enter size" min="500" step="50">
 
-           <label>Bedrooms:</label>
-           <input type="number" id="bedrooms" placeholder="Enter bedrooms" min="1" step="1">
+            <label>Bedrooms:</label>
+            <input type="number" id="bedrooms" placeholder="Enter bedrooms" min="1" step="1">
 
-           <label>Bathrooms:</label>
-           <input type="number" id="bathrooms" placeholder="Enter bathrooms" min="1" step="1">
+            <label>Bathrooms:</label>
+            <input type="number" id="bathrooms" placeholder="Enter bathrooms" min="1" step="1">
 
-           <h2>Predicted Price: <span id="predicted-price">₹0</span></h2>
+            <h2>Predicted Price: <span id="predicted-price">₹0</span></h2>
 
-           <canvas id="priceChart"></canvas>
-       </div>
+            <canvas id="priceChart"></canvas>
+        </div>
 
-       <!-- Working / How it Works Card -->
-       <div class="working-container">
-           <h2>How it Works</h2>
+        <!-- Working / How it Works Card -->
+        <div class="working-container">
+                <h2>How it Works</h2>
         <p>
             The House Price Predictor is based on the concept of <b>Linear Regression</b>, 
             a supervised machine learning algorithm. It tries to find the relationship between 
@@ -67,12 +67,12 @@
             <b>predicted house price</b> is displayed instantly. Additionally, the chart 
             helps visualize how the price changes based on inputs.
         </p>
-       </div>
+        </div>
 
-   </div>
+    </div>
 
-   <!-- Scripts -->
-   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.12.0/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
