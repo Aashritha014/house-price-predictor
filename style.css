@@ -1,62 +1,99 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    background: #f5f7fa;
+}
+
+/* Page header for links */
+.page-header {
     display: flex;
     justify-content: center;
-    padding-top: 50px;
-    position: relative; /* needed for absolute positioning of buttons */
+    gap: 10px; /* spacing between links */
+    margin-bottom: 30px;
+    font-size: 16px;
 }
 
-.container {
-    background: hsl(0, 0%, 100%);
-    padding: 50px 50px;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 500px;
+/* Header text links */
+.header-link {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-button {
-    padding: 10px 15px;
-    margin-bottom: 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.header-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
 }
 
+
+/* Flexbox wrapper for cards */
+.main-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch; /* ensures equal height cards */
+    flex-wrap: wrap; /* stack on small screens */
+}
+
+/* Card styling (predictor + working) */
+.container, .working-container {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    flex: 1 1 450px; /* grow/shrink, base width */
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Predictor card specific */
+.container h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+/* Form styling */
 label {
     display: block;
-    margin-top: 10px;
+    margin-top: 12px;
+    font-weight: bold;
+    color: #333;
 }
 
 input {
     width: 100%;
-    padding: 5px;
+    padding: 8px;
     margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
+/* Headings */
 h2 {
-    margin-top: 15px;
+    margin-top: 20px;
+    text-align: center;
+    color: #444;
 }
 
+/* Chart styling */
 canvas {
-    margin-top: 40px;
+    margin-top: 20px;
+    width: 100%;
+    height: 250px;
 }
 
-.top-right-buttons {
-    position: fixed; /* fixes buttons to viewport, stays at top-right */
-    top: 10px;
-    right: 20px;
-    display: flex;
-    gap: 10px; /* horizontal space between buttons */
-    align-items: center; /* vertically aligns buttons if they have different heights */
-    z-index: 1000; /* ensures buttons appear above other content */
+/* Working Section */
+.working-container h2 {
+    margin-bottom: 15px;
+    color: #007BFF;
 }
 
-.top-right-buttons button {
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    margin: 0; /* reset all margins */
+.working-container p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    flex: 1; /* ensures content stretches card height */
 }

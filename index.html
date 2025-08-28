@@ -6,37 +6,73 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-   <!-- Top-right buttons -->
-<div class="top-right-buttons">
-    <a href="https://flash-bream-1cd.notion.site/Linear-Regression-15517bf3de1e80e592e4d92f078395f3?source=copy_link" target="_blank">
-        <button id="workingButton">Working</button>
+   <!-- Header with simple text links -->
+<header class="page-header">
+    <a href="https://flash-bream-1cd.notion.site/Linear-Regression-15517bf3de1e80e592e4d92f078395f3?source=copy_link" target="_blank" class="header-link">
+        Working: Linear Regression
     </a>
-
-    <a href="https://aashritha014.github.io/Blog-Page/" target="_blank">
-        <button id="madeByButton">Made By</button>
+    |
+    <a href="https://aashritha014.github.io/Blog-Page/" target="_blank" class="header-link">
+        Made By: Aashritha
     </a>
-</div>
+</header>
 
 
-    <div class="container">
-        <h1>House Price Predictor</h1>
+   <!-- Wrapper for Predictor + Working -->
+   <div class="main-container">
 
-        <label>Size (sqft):</label>
-        <input type="number" id="size" placeholder="Enter size" min="500" step="50">
+       <!-- Predictor Card -->
+       <div class="container">
+           <h1>House Price Predictor</h1>
 
-        <label>Bedrooms:</label>
-        <input type="number" id="bedrooms" placeholder="Enter bedrooms" min="1" step="1">
+           <label>Size (sqft):</label>
+           <input type="number" id="size" placeholder="Enter size" min="500" step="50">
 
-        <label>Bathrooms:</label>
-        <input type="number" id="bathrooms" placeholder="Enter bathrooms" min="1" step="1">
+           <label>Bedrooms:</label>
+           <input type="number" id="bedrooms" placeholder="Enter bedrooms" min="1" step="1">
 
-        <h2>Predicted Price: <span id="predicted-price">₹0</span></h2>
+           <label>Bathrooms:</label>
+           <input type="number" id="bathrooms" placeholder="Enter bathrooms" min="1" step="1">
 
-        <canvas id="priceChart"></canvas>
-    </div>
+           <h2>Predicted Price: <span id="predicted-price">₹0</span></h2>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+           <canvas id="priceChart"></canvas>
+       </div>
+
+       <!-- Working / How it Works Card -->
+       <div class="working-container">
+           <h2>How it Works</h2>
+        <p>
+            The House Price Predictor is based on the concept of <b>Linear Regression</b>, 
+            a supervised machine learning algorithm. It tries to find the relationship between 
+            the independent variables (size, number of bedrooms, number of bathrooms) 
+            and the dependent variable (house price).
+        </p>
+        <p>
+            The mathematical model is usually represented as:
+            <br>
+            <b>Price = β₀ + β₁(Size) + β₂(Bedrooms) + β₃(Bathrooms)</b>
+        </p>
+        <p>
+            - β₀ is the intercept (base price). <br>
+            - β₁, β₂, β₃ are coefficients that show how much each feature influences the price. <br>
+        </p>
+        <p>
+            For example, increasing the size increases the predicted price linearly, while 
+            adding more bedrooms or bathrooms adjusts the price further. The coefficients 
+            are obtained from training the model on real housing data.
+        </p>
+        <p>
+            In this project, when you enter the values, the formula is applied and the 
+            <b>predicted house price</b> is displayed instantly. Additionally, the chart 
+            helps visualize how the price changes based on inputs.
+        </p>
+       </div>
+
+   </div>
+
+   <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="script.js"></script>
 </body>
 </html>
